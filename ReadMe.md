@@ -123,6 +123,8 @@ Tag the image:
 Now push to the Dockerhub:
 # sudo docker push praveendevopsk8s/testcasegen:latest 
 
+https://hub.docker.com/repository/docker/praveendevopsk8s/testcasegen/tags
+
 Now pull the image from the Dockerhub and run it
 # sudo docker pull praveendevopsk8s/testcasegen:latest 
 
