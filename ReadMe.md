@@ -100,3 +100,50 @@ MIT License
 ---
 
 Let's build better QA tools with AI. 💡
+
+===============================================
+Creating Docker image and running the container
+AT first build the Docker image with command:
+# sudo docker build -t .
+or
+# sudo docker build -t testcasegen .
+
+Now run the image to get the container:
+# sudo docker run -d -p 8501:8501 --name testcasegen <container ID>
+or 
+# sudo docker run -d -p 8501:8501 --name testcasegen testcasegen 
+
+Now tag and push to the Dockerhub:
+# sudo docker login -u praveendevopsk8s
+enter the password
+
+Tag the image:
+# sudo docker tag testcasegen praveendevopsk8s/testcasegen:latest 
+
+Now push to the Dockerhub:
+# sudo docker push praveendevopsk8s/testcasegen:latest 
+
+Now pull the image from the Dockerhub and run it
+# sudo docker pull praveendevopsk8s/testcasegen:latest 
+
+Running the image:
+# sudo docker run -d -p 8501:8501 --name testcase gen praveendevopsk8s/testcasegen:latest 
+
+Currently we have some issue with the container, Ollama is NOT working correctly, so must perform these steps inside the container:
+
+**Run an interactive session in the container:**
+# sudo docker exec -it testcase bash
+
+
+**Then, check if ollama is running:
+ps aux | grep ollama
+
+If it's not running, start it manually:
+ollama serve &
+
+
+Then, try running a basic prompt:
+ollama run deepseek-r1 "Hello, what is 2+2?"
+
+
+After above operations second time click it got the results**
